@@ -5,6 +5,7 @@ Codigo do servidor (Back-end + Front-End)
 ## Diretorios
 
 Static --> Front-end
+
 Node_modules --> Modulos do npm
 
 ## Arquivos
