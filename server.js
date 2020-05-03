@@ -7,17 +7,18 @@ const crypto = require('crypto');
 const body_parser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
-//ROUTES//
+///////////////////////////////////ROUTES/////////////////////////
 
-const patient = require('./routes/add_patient.js');
+const patient = require('./routes/patient.js');
 const ssr = require('./routes/ssr.js').ssr;
 const clinic = require('./routes/clinic.js');
+const doctor = require('./routes/doctor.js');
 
 
-//////////
+///////////////////////////////////////////////////////////////////
 
 
-//OPTIONS//
+//OPTIONS/////////////////////////////////////
 const rootFolder = 'static';
 const defaultHTML = '/index.html';
 
@@ -28,7 +29,7 @@ var con = mysql.createConnection({
 	database: "medcore"
 });
 
-///////////
+/////////////////////////////////////////////////
 
 //EXPRESS MODULES//
 const server = express();
@@ -65,7 +66,7 @@ function cookie_db(cookie, email, table){
 		});
 }
 
-function cookie_verify(cookie, callback, res){
+function cookie_verify(cookie, callback, res, req){
 	tables = ['users', 'clinics', 'doctors']
 	let sql_base = "SELECT * FROM $table WHERE session='" + cookie +"';"
 	let sql;
@@ -76,7 +77,7 @@ function cookie_verify(cookie, callback, res){
 			sql = sql_base.replace("$table", table);
 			con.query(sql, function(err, result){
 				if (result.length){
-					 return callback(result, res);
+					 return callback(result, res, req);
 				} else {
 					not_found++;
 				}
@@ -100,7 +101,7 @@ function logout(data, res){
 		table = 'clinics';
 	} else{
 		table = 'users';
-	}
+	} // DEFINIR QUAL TABELA ESTA O DATA
 	
 	let email = parsedData.email;
 	console.log(table);
@@ -125,14 +126,42 @@ server.get('/home-medcenter', function(req, res){
 	cookie_verify(req.cookies.session, clinic.home, res);
 });
 
+server.get('/home-doctor', function(req, res){
+	cookie_verify(req.cookies.session, doctor.home, res);
+
+});
+
+server.get('/home-patient', function(req, res){
+	cookie_verify(req.cookies.session, patient.home, res);	
+});
+
 
 server.get('/logout', function(req, res){
 	cookie_verify(req.cookies.session, logout, res);
 });
 
+
 server.post("/add_patient", patient.add);
 
 server.post("/add_clinic", clinic.add);
+
+server.post("/add_doctor", function(req, res){
+	cookie_verify(req.cookies.session, doctor.add, res, req);
+	
+});
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 // LOGIN
 server.post("/auth", function(req, res){

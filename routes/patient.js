@@ -1,6 +1,24 @@
 const crypto = require('crypto');
 const mysql = require('mysql');
 const con = require('./db.js').con;
+const ssr = require('./ssr.js').ssr;
+const fs = require('fs');
+
+function homeParser(data, res){
+	let parsedData = JSON.parse(JSON.stringify(data[0]));
+	let context = {
+		name: parsedData.name,
+		age: parsedData.age || "DATA DE NASCIMENTO",
+		sex: parsedData.sex || "SEXO",
+		weigth: parsedData.weigth || "PESO",
+		blood: parsedData.blood || "TIPO DE SANGUE"
+	};
+	let template = fs.readFileSync('static/home-patient.html', 'utf-8');
+
+	ssr(template, context, res);
+}	
+
+
 
 function add_to_db(req, res){
 	let name = req.body.name;
@@ -26,3 +44,4 @@ function add_to_db(req, res){
 }
 
 module.exports.add = add_to_db;
+module.exports.home = homeParser;

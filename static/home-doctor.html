@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medcore - Regitrar medico</title>
+    <title>Medcore - Home</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -17,9 +18,10 @@
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="/stylesheets/index.css">
 </head>
+
 <body>
     <nav class="navbar navbar-expand-sm navbar-light nav-div">
-        <a class="navbar-brand" href="home-medcenter"><img src="images/logo.png" id='logo-navbar' alt="medcore"></a>
+        <a class="navbar-brand" href="home-doctor"><img src="images/logo.png" id='logo-navbar' alt="medcore"></a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
             aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -30,7 +32,7 @@
                     <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="register-doctor.html">Cadastre um agente</a>
+                    <a class="nav-link" href="doctor-patients">Pacientes</a>
                 </li>
             </ul>
             <ul class='navbar-nav ml-auto mt-2 mt-lg-0'>
@@ -43,17 +45,19 @@
     </nav>
     <div class="container">
         <div class='center'>
-            <img src="images/doctor.png" alt="medico" id='doctor-register'>
-            <form action="add_doctor" method="post">
-                <input type="text" id='input' placeholder='Nome completo' name='name' required>
-                <input type="text" id='input' placeholder='Email' name='email' required>
-                <input type="text" id='input' placeholder='CRM' name='crm' required>
-                <input type="text" id='input' placeholder='Especialidade' name='spec'>
-                <button type="submit" id='btn-blue' class="btn btn-primary">REGISTRAR</button>
-            </form>
+            <img src="images/doctor.png" alt="avatar" class='center-image' style='width: 30%; margin-top: 30px;'>
+            <img src="images/camera.png" alt="camera" class='center-image' style='width: 5%'>
+
         </div>
+        <h3 id='patient-info'>{{ name }}</h3>
+        <h3 id='patient-info'>{{ spec }}</h3>
+        <h3 id='patient-info'>{{ clinic }}</h3>
+        <h3 id='patient-info'>{{ crm }}</h3>
+        <a id='invites' href='#'>Convites</a>
     </div>
 
-</body>
-</html>
 
+
+</body>
+
+</html>

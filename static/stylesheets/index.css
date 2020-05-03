@@ -175,7 +175,8 @@
 }
 
 .nav-div{
-    border-bottom: 2px solid #257EFF
+    border-bottom: 2px solid #257EFF;
+    background-color: #eeeeee
 }
 
 #clinic-name{
@@ -187,4 +188,10 @@
     color: black;
     font-size: 32px;
     text-align: center;
+}
+
+#logout, #logout:hover{
+    text-decoration: none;
+    color: black;
+    margin-right: 40px;
 }
