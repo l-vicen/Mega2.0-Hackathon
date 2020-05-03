@@ -195,3 +195,55 @@
     color: black;
     margin-right: 40px;
 }
+
+.doctor-patients-img{
+    width: 75%;
+    display: inline-block;
+    margin-top: -30px;
+    margin-bottom: 0;
+}
+
+.doctor-patients-btn{
+    width: 75% !important;
+    margin-top: 40px !important;
+    height: 45px !important;
+    margin-bottom: 20px !important;
+}
+
+#doctor-patients-name{
+    padding-top: 30px;
+}
+
+#doctor-patients-blocks{
+    border-bottom: 3px solid #257EFF;
+}
+
+#doctor-patients-info{
+    display: block;
+    padding-left: 10px;
+    color:gray;
+    margin: 5px auto;
+}
+
+#invite-add{
+    width: 100%;
+    display: inline-block;
+}
+
+@media (max-width: 1200px){
+    #doctor-patients-blocks2{
+        width: 100%;
+    }
+    .doctor-patients-img{
+        width: 40%;
+        margin: 10px auto;
+        display: block;
+    }
+    #doctor-patients-name, #doctor-patients-info{
+        padding-top: 0;
+        margin: 5px auto;
+        display: block;
+        text-align: center;
+    }
+
+}

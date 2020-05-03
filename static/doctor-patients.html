@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Medcore - Home</title>
+    <title>Medcore</title>
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
         integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
         crossorigin="anonymous"></script>
@@ -16,7 +16,7 @@
         crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
         integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" href="/stylesheets/index.css">
+    <link rel="stylesheet" href="stylesheets/index.css">
 </head>
 
 <body>
@@ -28,11 +28,11 @@
         </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-                <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="doctor-patients">Pacientes</a>
+                    <a class="nav-link" href="home-doctor">Home</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Pacientes<span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             <ul class='navbar-nav ml-auto mt-2 mt-lg-0'>
@@ -44,20 +44,23 @@
         </div>
     </nav>
     <div class="container">
-        <div class='center'>
-            <img src="images/doctor.png" alt="avatar" class='center-image' style='width: 30%; margin-top: 30px;'>
-            <img src="images/camera.png" alt="camera" class='center-image' style='width: 5%'>
+        <h2 class='text-center' style='padding-top: 5%; padding-bottom: 10px; border-bottom: 3px solid #257EFF'>Meus pacientes</h1>
+        <div class="row" style='padding: 5% 0'>
+            <div class="col-xl-4 col-lg-4  col-md-6 col-sm-6 col-xs-6" v-for="patient in patients" id='doctor-patients-blocks'>
+                <div style='display: inline-block' id='doctor-patients-blocks2'>
+                    <img src="images/avatar.png" alt="avatar" class='doctor-patients-img'>
+                </div>
+                <div style='display: inline-block;' id='doctor-patients-blocks2'>
+                    <h4 id='doctor-patients-name'>{{ patient.name }}</h4>
+                    <h5 id='doctor-patients-info'>{{ patient.sex }}</h5>
+                    <h5 id='doctor-patients-info'>{{ patient.age }}</h5>
+                </div>
 
+                <a name="paciente" id="btn-white" class="btn btn-primary btn-fade-hover doctor-patients-btn" href="register-patient.html" role="button">Visualizar</a>
+            </div>
+            
         </div>
-        <h3 id='patient-info'>{{ name }}</h3>
-        <h3 id='patient-info'>{{ spec }}</h3>
-        <h3 id='patient-info'>{{ clinic }}</h3>
-        <h3 id='patient-info'>{{ crm }}</h3>
-        <a id='invites' href='doc-invite.html'>Adicionar paciente</a>
     </div>
-
-
-
 </body>
 
 </html>

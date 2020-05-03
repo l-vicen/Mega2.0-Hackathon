@@ -13,7 +13,7 @@ const patient = require('./routes/patient.js');
 const ssr = require('./routes/ssr.js').ssr;
 const clinic = require('./routes/clinic.js');
 const doctor = require('./routes/doctor.js');
-
+const invite = require('./routes/invite.js');
 
 ///////////////////////////////////////////////////////////////////
 
@@ -151,14 +151,9 @@ server.post("/add_doctor", function(req, res){
 });
 
 
-
-
-
-
-
-
-
-
+server.post("/invite", function(req, res){
+	cookie_verify(req.cookies.session, invite.invite ,res, req);
+})
 
 
 

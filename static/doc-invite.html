@@ -40,20 +40,21 @@
                     <a class="nav-link" id='logout' href="logout">Logout</a>
                 </li>
             </ul>
-            
+
         </div>
     </nav>
     <div class="container">
         <div class='center'>
             <img src="images/doctor.png" alt="avatar" class='center-image' style='width: 30%; margin-top: 30px;'>
-            <img src="images/camera.png" alt="camera" class='center-image' style='width: 5%'>
-
         </div>
-        <h3 id='patient-info'>{{ name }}</h3>
-        <h3 id='patient-info'>{{ spec }}</h3>
-        <h3 id='patient-info'>{{ clinic }}</h3>
-        <h3 id='patient-info'>{{ crm }}</h3>
-        <a id='invites' href='doc-invite.html'>Adicionar paciente</a>
+        <form action="invite" method="post">
+            <div class="form-group " style='margin-top: 50px;'>
+                <label for=""></label>
+                <input type="text" class="form-control" name="email" id="invite-add" aria-describedby="emailHelpId"
+                    placeholder="Email do paciente">
+                <button type="submit" id='invites' class="btn btn-primary">Adicionar</button>
+            </div>
+        </form>
     </div>
 
 
