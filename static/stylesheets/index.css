@@ -1,0 +1,190 @@
+
+.center{
+    margin: 0 auto;
+    width: 50%;
+
+}
+
+#home-image{
+    margin-left: auto;
+    margin-right: auto;
+    width: 100%;
+    display: block;
+    margin-top: 20px;
+}
+
+#btn-white{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: 0;
+    width: 300px;
+    height: 50px;
+    display: block;
+    background-color: white;
+    color: #257EFF;
+    border-radius: 30px !important;
+    border-color: #257EFF;
+    font-size: 20px;
+}
+
+#btn-blue{
+    font-size: 20px;    
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 10%;
+    margin-bottom: 0;
+    width: 300px;
+    height: 50px;
+    display: block;
+    background-color: #257EFF;
+    color: white;
+    border-radius: 30px !important;
+    border-width: 2px;
+    border-color: #257EFF
+}
+
+#logo-login{
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+    display: block;
+}
+
+#input{
+    margin-top: 8%;
+    margin-bottom: 0;
+    width: 350px;
+    height: 50px;
+    display: block;
+    background-color: white;
+    color: black;
+    border-radius: 30px !important;
+    border-color: #257EFF;
+    font-size: 20px;
+    padding-left: 10px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+#input:focus{
+    outline: none;
+}
+
+#forgot-pass{
+    color: #888888;
+    text-decoration: underline;
+    padding-left: 20%;
+}
+
+
+#avatar-register{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    display: block;
+    margin-top: 30px;
+}
+
+#medcenter-register{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    display: block;
+    margin-top: 30px;
+}
+
+#doctor-register{
+    margin-left: auto;
+    margin-right: auto;
+    width: 40%;
+    display: block;
+    margin-top: 30px;
+}
+
+.btn-fade-hover:hover{
+    background-color: #257EFF !important;
+    color: white !important;
+}
+
+.who-image{
+    margin: 0 auto;
+    display: block;
+    height: 15vw;
+}
+
+.no-margin{
+    margin: 0;
+}
+
+.center-image{
+    margin: 10px auto;
+    display: block;
+}
+
+#patient-info{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 0;
+    width: 400px;
+    height: 50px;
+    display: block;
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    font-size: 25px;
+    border:3px solid #257EFF;
+    text-align: center;
+    padding-top: 5px;
+}
+
+#invites{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 0;
+    width: 400px;
+    height: 50px;
+    display: block;
+    background-color: white;
+    color: black;
+    border-radius: 30px;
+    font-size: 25px;
+    border:3px solid #3fcc50;
+    text-align: center;
+    padding-top: 4px;
+}
+
+#invites:hover{
+    text-decoration: none;
+    background-color: #3fcc50
+}
+
+#logo-navbar{
+    height: 3vw;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-item{
+    margin-right: 0px !important;
+    margin-left: 30px !important;
+}
+
+.nav-div{
+    border-bottom: 2px solid #257EFF
+}
+
+#clinic-name{
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: 60px;
+    display: block;
+    color: black;
+    font-size: 32px;
+    text-align: center;
+}

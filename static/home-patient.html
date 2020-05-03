@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medcore - Home</title>
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
+        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+        crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
+        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+        crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="/stylesheets/index.css">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light nav-div">
+        <a class="navbar-brand" href="#" style='padding:0;'><img src="images/logo.png" id='logo-navbar' alt="medcore"></a>
+        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId"
+            aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Diagnosticos</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Exames</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="#">Meus medicos</a>
+                </li>
+                
+            </ul>
+        </div>
+    </nav>
+    <div class="container">
+        <div class='center'>
+            <img src="images/avatar.png" alt="avatar" class='center-image' style='width: 30%; margin-top: 30px;'>
+            <img src="images/camera.png" alt="camera" class='center-image' style='width: 5%'>
+
+        </div>
+        <h3 id='patient-info'>{{ name }}</h3>
+        <h3 id='patient-info'>{{ age }}</h3>
+        <h3 id='patient-info'>{{ sex }}</h3>
+        <h3 id='patient-info'>{{ weigth }}</h3>
+        <h3 id='patient-info'>{{ blood }}</h3>
+        <a id='invites' href='#'>Convites</a>
+    </div>
+
+
+
+</body>
+
+</html>
