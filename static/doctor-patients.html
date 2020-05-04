@@ -40,26 +40,30 @@
                     <a class="nav-link" id='logout' href="logout">Logout</a>
                 </li>
             </ul>
-            
+
         </div>
     </nav>
     <div class="container">
-        <h2 class='text-center' style='padding-top: 5%; padding-bottom: 10px; border-bottom: 3px solid #257EFF'>Meus pacientes</h1>
+        <h2 class='text-center' style='padding-top: 5%; padding-bottom: 10px; border-bottom: 3px solid #257EFF'>Meus
+            pacientes</h2>
         <div class="row" style='padding: 5% 0'>
-            <div class="col-xl-4 col-lg-4  col-md-6 col-sm-6 col-xs-6" v-for="patient in patients" id='doctor-patients-blocks'>
+
+            <div class="col-xl-4 col-lg-4  col-md-6 col-sm-6 col-xs-6" v-for="patient in patients"
+                id='doctor-patients-blocks'>
                 <div style='display: inline-block' id='doctor-patients-blocks2'>
                     <img src="images/avatar.png" alt="avatar" class='doctor-patients-img'>
                 </div>
                 <div style='display: inline-block;' id='doctor-patients-blocks2'>
-                    <h4 id='doctor-patients-name'>{{ patient.name }}</h4>
-                    <h5 id='doctor-patients-info'>{{ patient.sex }}</h5>
-                    <h5 id='doctor-patients-info'>{{ patient.age }}</h5>
+                    <h5 id='doctor-patients-name'>{{ patient.name }}</h5>
+                    <h6 id='doctor-patients-info'>{{ patient.sex }}</h6>
+                    <h6 id='doctor-patients-info'>{{ patient.age }}</h6>
                 </div>
 
-                <a name="paciente" id="btn-white" class="btn btn-primary btn-fade-hover doctor-patients-btn" href="register-patient.html" role="button">Visualizar</a>
+                <a name="paciente" id="btn-white" class="btn btn-primary btn-fade-hover doctor-patients-btn"
+                    href="register-patient.html" role="button">Visualizar</a>
             </div>
-            
         </div>
+
     </div>
 </body>
 

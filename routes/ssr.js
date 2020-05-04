@@ -4,7 +4,7 @@ const vue = require('vue');
 function serverSideRender(template, context, res){
 	let app = new vue({
 		template: template,
-		data: context
+		data: context,
 	});
 
 	renderer.renderToString(app, (err, html) => {

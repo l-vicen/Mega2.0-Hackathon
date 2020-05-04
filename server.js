@@ -140,6 +140,21 @@ server.get('/logout', function(req, res){
 	cookie_verify(req.cookies.session, logout, res);
 });
 
+server.get('/doctor-patients', function(req, res){
+	cookie_verify(req.cookies.session, doctor.patients, res);
+});
+
+server.get('/patient-doctors', function(req, res){
+	cookie_verify(req.cookies.session, patient.doctors, res);
+});
+
+server.get('/patient_invites', function(req, res){
+	cookie_verify(req.cookies.session, patient.invites, res, req);
+});
+
+server.post('/remove-doctor', function(req,res){
+	cookie_verify(req.cookies.session, patient.remove_doctor, res, req);
+});
 
 server.post("/add_patient", patient.add);
 
@@ -150,6 +165,9 @@ server.post("/add_doctor", function(req, res){
 	
 });
 
+server.post('/accept_doctor', function(req, res){
+	cookie_verify(req.cookies.session, invite.response, res, req);
+});
 
 server.post("/invite", function(req, res){
 	cookie_verify(req.cookies.session, invite.invite ,res, req);
@@ -159,6 +177,11 @@ server.post("/invite", function(req, res){
 
 
 // LOGIN
+
+function create_token(password, id){
+	
+}
+
 server.post("/auth", function(req, res){
 	let email = req.body.email;
 	let pass = req.body.password;
@@ -176,7 +199,7 @@ server.post("/auth", function(req, res){
 				console.log("Patient logged in successfully: " + email);
 				let generated = cookie_gen(32);
 				cookie_db(generated, email, 'users');
-				res.cookie('session', generated);
+				res.cookie('session', generated, {maxAge: 216000000});
 				res.redirect(303, 'home-patient');
 			} else{
 				con.query(sql_clinic, function(err, result){
@@ -185,7 +208,7 @@ server.post("/auth", function(req, res){
 					console.log("Clinic logged in successfully: " + email);
 					let generated = cookie_gen(32);
 					cookie_db(generated, email, 'clinics');
-					res.cookie('session', generated);
+					res.cookie('session', generated, {maxAge: 216000000});
 					res.redirect(303, 'home-medcenter');
 				} else{
 					con.query(sql_doctor, function(err, result){
@@ -194,7 +217,7 @@ server.post("/auth", function(req, res){
 							console.log("Doctor logged in successfully: " + email);
 							let generated = cookie_gen(32);
 							cookie_db(generated, email, 'doctors');
-							res.cookie('session', generated);
+							res.cookie('session', generated, {maxAge: 216000000});
 							res.redirect(303, 'home-doctor');
 						} else{
 							res.redirect(303, 'login.html');

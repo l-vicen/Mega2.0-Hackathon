@@ -22,7 +22,7 @@ function invite(data, res, req){
 
 
 function add_invite(doctor_id, patient_id, res){
-	let insert_invite = `INSERT INTO doc_invite (doctor, patient) VALUES ('${doctor_id}', '${patient_id}')`;
+	let insert_invite = `INSERT INTO doc_invite (doctor, patient) VALUES (${doctor_id}, ${patient_id})`;
 	con.query(insert_invite, function(err, result){
 		if (err) throw err;
 		success(res);
@@ -166,5 +166,45 @@ function failed(res){
 </html>`)
 }
 
+function response(data, res, req){
+	let doc_id = req.body.id;
+	let choice = req.body.choice;
+	let parsedData = JSON.parse(JSON.stringify(data[0]));
+	let patient_id = parsedData.id;
+	if (choice == 'yes'){
+		accept_invite(patient_id, doc_id);
+	}
+	else{
+		reject_invite(patient_id, doc_id);
+	}
+	res.redirect(303, 'patient_invites')
+}
 
+
+function accept_invite(patient_id, doctor_id){
+	let sql_remove_invite = `DELETE FROM doc_invite WHERE doctor=${doctor_id} AND patient=${patient_id};`;
+	let add_doctor = `INSERT INTO doc_patients (patient, doctor) VALUES (${patient_id}, ${doctor_id});`
+	con.query(sql_remove_invite, function(err, result){
+		if (err) throw err;
+	});
+	con.query(add_doctor, function(err, result){
+		if (err) throw err;
+	});
+};
+
+function reject_invite(patient_id, doctor_id){
+	let sql_remove_invite = `DELETE FROM doc_invite WHERE doctor=${doctor_id} AND patient=${patient_id};`;
+	con.query(sql_remove_invite, function(err, result){
+		if (err) throw err;
+	});
+}
+
+
+
+
+module.exports.response = response;
 module.exports.invite = invite;
+
+
+
+

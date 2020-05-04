@@ -69,6 +69,54 @@ function add_to_db(data, res, req){
 	});
 }
 
+function patients(data, res){
+	let parsedData = JSON.parse(JSON.stringify(data[0]));
+	let doc_id = parsedData.id;
+	let query = `SELECT * FROM doc_patients WHERE doctor=${doc_id};`;
+	let final_data = [];
+	let getData;
+	let patient_id;
+	let parsed;
+	let length;
+	let selected;
+	let template = fs.readFileSync('static/doctor-patients.html').toString();
+	
+	con.query(query, function(err, result){
+		if (result.length){
+			length = result.length;
+			cont = 0;
+			for (i of result){
+				patient_id = i.patient;
+				getData = `SELECT * FROM users WHERE id=${patient_id};`;
+				con.query(getData, function(err, result){
+					parsed = JSON.parse(JSON.stringify(result[0]));
+					selected = {
+					name: parsed.name,
+					sex: parsed.sex || 'SEXO', 
+					age: parsed.age || 'DATA DE NASCIMENTO'
+					}
+					
+					final_data.push(selected);
+					cont++;
+					if (cont == length){
+						let context = {
+							patients: final_data
+						}
+						console.log(context);
+						ssr(template, context, res);
+					}
+				})
+				
+			}
+		} else{
+			res.end(fs.readFileSync('static/doctor-patients-false.html').toString());
+		}
+	
+	});
 
+}
+
+
+module.exports.patients = patients;
 module.exports.add = add_to_db;
 module.exports.home = homeParser;

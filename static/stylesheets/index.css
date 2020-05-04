@@ -212,6 +212,7 @@
 
 #doctor-patients-name{
     padding-top: 30px;
+
 }
 
 #doctor-patients-blocks{
@@ -220,7 +221,8 @@
 
 #doctor-patients-info{
     display: block;
-    padding-left: 10px;
+    padding: 0;
+    text-align: center;
     color:gray;
     margin: 5px auto;
 }
@@ -228,6 +230,46 @@
 #invite-add{
     width: 100%;
     display: inline-block;
+}
+
+#btn-remove{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: 0;
+    width: 300px;
+    height: 50px;
+    display: block;
+    background-color: white;
+    color: black;
+    border-radius: 30px !important;
+    border-color: red;
+    font-size: 20px;
+}
+
+#btn-remove:hover{
+    background-color: red;
+}
+
+#btn-accept{
+    font-weight: bold;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 15%;
+    margin-bottom: 0;
+    width: 300px;
+    height: 50px;
+    display: block;
+    background-color: white;
+    color: black;
+    border-radius: 30px !important;
+    border-color: #3fcc50;
+    font-size: 20px;
+}
+
+#btn-accept:hover{
+    background-color: #3fcc50;
 }
 
 @media (max-width: 1200px){
@@ -244,6 +286,6 @@
         margin: 5px auto;
         display: block;
         text-align: center;
-    }
 
+    }
 }
