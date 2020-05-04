@@ -9,10 +9,10 @@ const USERS_TABLE = 'users'
 module.exports = {
   async create(request, response) {
     const id = crypto.randomBytes(4).toString('HEX')
-    let { password } = request.body;
+    let { password, readonly } = request.body;
     password = bcrypt.hashSync(password, 10)
 
-    await connection(USERS_TABLE).insert({ id, password })
+    await connection(USERS_TABLE).insert({ id, password, readonly })
 
     return response.json({ id })
   },
@@ -22,7 +22,7 @@ module.exports = {
 
     const user = await connection(USERS_TABLE).where('id', '=', id).select('password', 'token', 'token_request').first();
 
-    if (!user || !bcrypt.compareSync(password + "", user.password)) {
+    if (!user || user.readonly || !bcrypt.compareSync(password + "", user.password)) {
       return response.status(401).json({
         error: `User doesn't exist.`
       })

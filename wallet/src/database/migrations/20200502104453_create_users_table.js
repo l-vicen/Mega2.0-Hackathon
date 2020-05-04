@@ -5,6 +5,7 @@ exports.up = (knex) => (
     table.datetime('token_request')
     table.string('token')
     table.string('password').notNullable()
+    table.boolean('readonly').default(false)
   })
 )
 

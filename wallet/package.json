@@ -25,6 +25,7 @@
     "cors": "^2.8.5",
     "crypto": "^1.0.1",
     "express": "^4.17.1",
+    "express-fileupload": "^1.1.7-alpha.3",
     "knex": "^0.21.1",
     "sqlite3": "^4.2.0"
   }
